@@ -14,7 +14,7 @@
     <div class="numero-dias">
         <div class="dia-numerico" *ngFor="let item of diasDoMes">
             <div class="preenchido"></div>
-            <div class="conteudo">
+            <div class="conteudo" (click)="getDiaSelecionado($event)">
                 {{item}}
             </div>
 
