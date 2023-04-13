@@ -11,15 +11,17 @@
 
 .proj-content {
     padding: 1rem;
-    background-color: blue;
     flex: 8;
+    border: 2px solid rgb(27, 53, 87);
+    margin-right: 2px;
 }
 
 .calendar {
     padding: 1rem;
-    background-color: blueviolet;
     flex: 4;
     text-align: center;
+    border: 2px solid rgb(27, 53, 87);
+    margin-left: 2px;
 }
 .demo-inline-calendar-card {
     width: 300px;
