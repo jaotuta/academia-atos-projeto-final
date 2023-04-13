@@ -1,0 +1,27 @@
+.flex-container {
+    display: flex;
+    margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+    .flex-container {
+      flex-direction: column;
+    }
+}
+
+.proj-content {
+    padding: 1rem;
+    background-color: blue;
+    flex: 8;
+}
+
+.calendar {
+    padding: 1rem;
+    background-color: blueviolet;
+    flex: 4;
+    text-align: center;
+}
+.demo-inline-calendar-card {
+    width: 300px;
+  }
+  

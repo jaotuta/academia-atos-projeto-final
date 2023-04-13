@@ -1,0 +1,56 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.numero-dias {
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+    width: 95%;
+    margin: auto;
+    padding: 5px;
+}
+
+.dia-numerico {
+    background-color: chocolate;
+    padding: 5px;
+}
+
+.dias {
+    padding: 5px;
+}
+
+.iniciais-dias {
+    background-color: rgb(226, 128, 8);
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 95%;
+    padding: 5px;
+}
+
+
+.domingo {
+    grid-column-start: 1;
+}
+.segunda {
+    grid-column-start: 2;
+}
+.terca {
+    grid-column-start: 3;
+}
+.quarta {
+    grid-column-start: 4;
+}
+.quinta {
+    grid-column-start: 5;
+}
+.sexta {
+    grid-column-start: 6;
+}
+.sabado {
+    grid-column-start: 7;
+}
