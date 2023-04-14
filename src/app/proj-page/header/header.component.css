@@ -1,8 +1,14 @@
 .projeto {
-    background-color: rgb(221, 221, 221);
-    color: rgb(27, 53, 87);
+    display: flex;
+    background-color: rgb(97, 154, 234);
+    color: white;
     padding: 1.5rem;
     margin-bottom: 0.5rem;
-    font-weight: 700;
-    font-size: 1.2em;
+    font-weight: 500;
+    font-size: 1.4em;
+    box-shadow: 2px 2px 14px rgba(148, 148, 148, 0.281);
+}
+
+.proj-infos {
+    margin-left: 5px;
 }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-section.component.css']
 })
 export class MainSectionComponent {
-
+  dia = "14 de Abril de 2023"
 }
