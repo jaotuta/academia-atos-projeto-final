@@ -23,9 +23,9 @@
         <div class="dias">sab</div>
     </div>
     <div class="numero-dias">
-        <div class="dia-numerico" *ngFor="let item of diasDoMes">
+        <div class="dia-numerico naoSelecionavel" *ngFor="let item of diasDoMes">
             <div class="preenchido"></div>
-            <div class="conteudo" (click)="getDiaSelecionado($event)">
+            <div class="conteudo " (click)="getDiaSelecionado($event)">
                 {{item}}
             </div>
 

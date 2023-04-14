@@ -24,17 +24,37 @@
 }
 .registros {
     padding: 1.5rem;
+    flex-grow: 10;
 }
 
 .dia-selecionado {
     padding: 0.5em;
     flex-grow: 10;
 }
+.rodape-main {
+    background-color: rgb(201, 213, 224);
+    padding: 1rem;
+}
+.naoSelecionavel {
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    user-select: none;            /* Possível implementação no futuro */
+    /* cursor: default; */
+}
 .btn-add {
     padding: 0.5em;
     flex-grow: 2;
-    background-color: rgb(97, 154, 234);
+    background-color: rgb(22, 106, 222);
     text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.btn-add:hover {
+    background-color: rgb(19, 96, 204);
+    box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.603);
 }
 .texto-btn {
     color: white;

@@ -30,12 +30,14 @@
     color: rgb(250, 220, 137);
     font-family: 'Khand', sans-serif;
     font-family: 'Smooch Sans', sans-serif;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.356);
 }
 
 .master {
     font-family: 'Khand', sans-serif;
     font-family: 'Smooch Sans', sans-serif;
     color: white;
+    
 }
 
 .empty-space {
