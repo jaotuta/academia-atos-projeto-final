@@ -19,12 +19,14 @@
 .add-registro {
     display: flex;
     padding: 1.5rem;
+    padding-bottom: 0.5rem;
     background-color: rgb(255, 255, 255);
     color: rgb(27, 53, 87);
 }
 .registros {
     padding: 1.5rem;
     flex-grow: 10;
+    padding-top: 0.5rem;
 }
 
 .dia-selecionado {
@@ -59,7 +61,12 @@
 .texto-btn {
     color: white;
 }
-
+.registro-diario {
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.603);
+    border-radius: 5px;
+    margin: 8px;
+    padding: 1.2rem;
+}
 .divisor {
     width: 6px;
 }
@@ -69,6 +76,7 @@
     text-align: center;
     background-color: white;
     box-shadow: 2px 2px 14px rgba(148, 148, 148, 0.281);
+    max-height: 370px;
 }
 .demo-inline-calendar-card {
     width: 300px;
