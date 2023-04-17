@@ -11,6 +11,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { CalendarComponent } from './proj-page/calendar/calendar.component';
 import { MatIconModule } from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RecursoFormDialogComponent } from './proj-page/main-section/recurso-form-dialog/recurso-form-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
+
 
 
 @NgModule({
@@ -20,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     MainSectionComponent,
     FooterComponent,
-    CalendarComponent, 
+    CalendarComponent,
+    RecursoFormDialogComponent, 
 
   ],
   imports: [
@@ -28,7 +38,11 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     MatDatepickerModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
