@@ -9,7 +9,7 @@ import { RecursoFormDialogComponent } from './recurso-form-dialog/recurso-form-d
 })
 export class MainSectionComponent {
 
-  registros = [{nome: "João Lucas Cruz", func: "Engenheiro"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Maicon Roberto Soares", func: "Montador"}]
+  registros = [{nome: "João Lucas Cruz", func: "Engenheiro"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Célio Roberto", func: "Eletricista"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Maicon Roberto Soares", func: "Montador"}, {nome: "Maicon Roberto Soares", func: "Montador"}]
 
   constructor(public dialog: MatDialog) {};
 
