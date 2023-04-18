@@ -36,19 +36,15 @@ export class CalendarComponent {
   }
   prevMonth() {
     if (!(this.mes < 1)) {
-      console.log(this.mes);
       this.mes = this.mes - 1;
       this.qtdDiasNoMes = this.diasNoMes(this.mes, this.ano);
-      console.log(this.mes);
       this.ngOnInit();
     }
   }
   nextMonth() {
     if (!(this.mes > 10)) {
-      console.log(this.mes);
       this.mes = this.mes + 1;
       this.qtdDiasNoMes = this.diasNoMes(this.mes, this.ano);
-      console.log(this.mes);
       this.ngOnInit();
     }
   }
@@ -59,7 +55,6 @@ export class CalendarComponent {
 
   getDiaSelecionado($event: any) {
     this.diaSelecionado = $event.target.innerHTML;
-    console.log(this.diaSelecionado);
   }
 
   ngOnInit() {
@@ -70,7 +65,6 @@ export class CalendarComponent {
   }
 
   ngDoCheck() {
-    console.log('entrou');
     const primeiroDia = document.querySelector('.dia-numerico');
     const hoje = document.querySelectorAll('.conteudo');
     hoje.forEach((item) => {
@@ -78,7 +72,6 @@ export class CalendarComponent {
         parseInt(item.innerHTML) == this.now.getDate() &&
         this.mes == this.now.getMonth()
       ) {
-        console.log(this.mes == this.now.getMonth());
         item.classList.add('dia-atual');
       } else {
         item.classList.remove('dia-atual');

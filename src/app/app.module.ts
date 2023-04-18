@@ -14,9 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RecursoFormDialogComponent } from './proj-page/main-section/recurso-form-dialog/recurso-form-dialog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ToastConfirmacaoComponent } from './proj-page/toast-confirmacao/toast-confirmacao.component';
 
 
 
@@ -30,7 +31,8 @@ import {MatButtonModule} from '@angular/material/button';
     MainSectionComponent,
     FooterComponent,
     CalendarComponent,
-    RecursoFormDialogComponent, 
+    RecursoFormDialogComponent,
+    ToastConfirmacaoComponent, 
 
   ],
   imports: [
@@ -42,7 +44,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatDialogModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

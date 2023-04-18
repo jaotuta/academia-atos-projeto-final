@@ -24,7 +24,11 @@
     background-color: rgb(255, 255, 255);
     color: rgb(27, 53, 87);
 }
+.toast-class {
+    position: fixed;
+    top: 500px;
 
+}
 .registros {
     padding: 1.5rem;
     flex-grow: 10;
