@@ -46,7 +46,7 @@ export class MainSectionComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed' + result);
     });
   }
   ngOnInit(){
@@ -55,6 +55,7 @@ export class MainSectionComponent {
 
   getListOfRegistros() {
     this.registros = this.service.getListOfRegistros();
+    
   }
   
 }

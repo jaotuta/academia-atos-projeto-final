@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
+  registrosss: Array<Object> | undefined;
   apiUrl = 'http://localhost:8080/rda'
 
   httpOptions = {
@@ -22,9 +23,13 @@ export class ServiceService {
     return this.httpClient.get<string>(this.apiUrl + '?flag=' + flag)
   };
 
+  testeModArray(){
+    this.registrosss?.push({id: 5, nome: "Adriana Silveira", func: "ADM" })
+  }
+  
   getListOfRegistros() {
-    let registrosss =  [{ id: 1, nome: "João Pedro de Lima Cruz", func: "Engenheiro" }, { id: 2, nome: "Maicon Roberto Soares", func: "Montador" }, { id: 3, nome: "Célio Roberto", func: "Eletricista" }, { nome: "Maicon Roberto Soares", func: "Montador" }, { nome: "Maicon Roberto Soares", func: "Montador" }, { nome: "Maicon Roberto Soares", func: "Montador" }]
-    return registrosss
+    this.registrosss =  [{ id: 1, nome: "João Lucas Cruz", func: "Engenheiro" }, { id: 2, nome: "Maicon Roberto Soares", func: "Montador" }, { id: 3, nome: "Célio Roberto", func: "Eletricista" }]
+    return this.registrosss;
   }
 
 }
