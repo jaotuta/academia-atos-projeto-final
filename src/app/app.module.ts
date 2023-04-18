@@ -18,6 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ToastConfirmacaoComponent } from './proj-page/toast-confirmacao/toast-confirmacao.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,6 +37,7 @@ import { ToastConfirmacaoComponent } from './proj-page/toast-confirmacao/toast-c
 
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     MatDatepickerModule,

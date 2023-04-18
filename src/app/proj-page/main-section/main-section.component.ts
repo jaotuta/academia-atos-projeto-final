@@ -4,6 +4,7 @@ import { RecursoFormDialogComponent } from './recurso-form-dialog/recurso-form-d
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { ToastConfirmacaoComponent } from '../toast-confirmacao/toast-confirmacao.component';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-main-section',
@@ -11,10 +12,13 @@ import { ToastConfirmacaoComponent } from '../toast-confirmacao/toast-confirmaca
   styleUrls: ['./main-section.component.css']
 })
 export class MainSectionComponent {
+  now = new Date();
+  //dia = new.getDay();
+  //mes = this.now.getMonth();
+  dia = this.now.getDate() + " / " + (this.now.getMonth()+1) + " / 2023"
+  registros :any;
 
-  registros = [{ id: 1, nome: "João Lucas Cruz", func: "Engenheiro" }, { id: 2, nome: "Maicon Roberto Soares", func: "Montador" }, { id: 3, nome: "Célio Roberto", func: "Eletricista" }, { nome: "Maicon Roberto Soares", func: "Montador" }, { nome: "Maicon Roberto Soares", func: "Montador" }, { nome: "Maicon Roberto Soares", func: "Montador" }]
-
-  constructor(public dialog: MatDialog, private toastr: ToastrService) { };
+  constructor(public dialog: MatDialog, private toastr: ToastrService, public service: ServiceService) { };
 
   condition = true;
 
@@ -23,6 +27,7 @@ export class MainSectionComponent {
       positionClass: 'toast-top-full-width'
     })
   }
+
 
   confirmacao(id_registro:any) {
     console.log(id_registro + ": Id_registro")
@@ -44,6 +49,12 @@ export class MainSectionComponent {
       console.log('The dialog was closed');
     });
   }
+  ngOnInit(){
+    this.getListOfRegistros();  
+  }
 
-  dia = "14 de Abril de 2023"
+  getListOfRegistros() {
+    this.registros = this.service.getListOfRegistros();
+  }
+  
 }
