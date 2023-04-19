@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ServiceService } from 'src/app/rda.service';
+import { MainSectionComponent } from '../main-section/main-section.component';
 
 @Component({
   selector: 'app-calendar',
@@ -28,7 +30,9 @@ export class CalendarComponent {
   qtdDiasNoMes = this.diasNoMes(this.mes, this.ano);
   diaDeInicio = this.retornaPrimeiroDiaDoMes(this.mes, this.ano);
   firstLoad = 0;
-  diaSelecionado: undefined;
+  diaSelecionado = this.now.getDate();
+
+  constructor(public rdaService: ServiceService, public mainContent: MainSectionComponent) {};
 
   diasNoMes(mes: number, ano: number) {
     var data = new Date(ano, mes + 1, 0);
@@ -55,6 +59,10 @@ export class CalendarComponent {
 
   getDiaSelecionado($event: any) {
     this.diaSelecionado = $event.target.innerHTML;
+    this.rdaService.dia = $event.target.innerHTML;
+    this.rdaService.mes =  this.mes.toString();
+    this.mainContent.getDiaSelecionado();
+    console.log(this.diaSelecionado +"  "+ this.mes + "calendar")
   }
 
   ngOnInit() {
@@ -62,6 +70,8 @@ export class CalendarComponent {
     for (let i = 1; i <= this.qtdDiasNoMes; i++) {
       this.diasDoMes.push(i);
     }
+    this.rdaService.dia = this.diaSelecionado.toString();
+    this.rdaService.mes =  this.mes.toString();
   }
 
   ngDoCheck() {

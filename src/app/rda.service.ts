@@ -1,11 +1,14 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Recurso } from './models/recurso.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
+  dia: string;
+  mes: string;
   registrosss: Array<Object> | undefined;
   apiUrl = 'http://localhost:8080/rda'
 
@@ -19,9 +22,13 @@ export class ServiceService {
     private httpClient: HttpClient
   ) {}
 
-  public getRdaWithFlag(flag: string):  Observable<string> {
-    return this.httpClient.get<string>(this.apiUrl + '?flag=' + flag)
+  public getRdaWithDiaMes(dia: string, mes: string):  Observable<Recurso> {
+    return this.httpClient.get<Recurso>(this.apiUrl + '?dia=' + dia + '&mes=' + mes ) 
   };
+
+  public postRecurso(recurso: any) : Observable<Recurso> {
+    return this.httpClient.post<any>(this.apiUrl, recurso, this.httpOptions)
+  }
 
   testeModArray(){
     this.registrosss?.push({id: 5, nome: "Adriana Silveira", func: "ADM" })
@@ -32,6 +39,9 @@ export class ServiceService {
     return this.registrosss;
   }
 
+  getDia(): string {
+    return this.dia
+  }
 }
 
 

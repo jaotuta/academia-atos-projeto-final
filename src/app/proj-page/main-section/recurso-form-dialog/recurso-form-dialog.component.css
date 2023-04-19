@@ -9,3 +9,14 @@
 }.container{
     padding: 1rem;
 }
+
+.full-width {
+    width: 100%;
+}
+
+.altura {
+    height: 100px;
+
+}
+
+

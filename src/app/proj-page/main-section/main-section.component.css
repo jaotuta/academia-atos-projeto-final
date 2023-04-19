@@ -40,8 +40,14 @@
 .dia-selecionado {
     padding: 0.5em;
     flex-grow: 10;
+    font-weight: 600;
+    font-size: 1rem;
 }
-
+.dia-selecionado-nome {
+    padding: 0.5em;
+    flex-grow: 10;
+    font-size: 1rem;
+}
 .rodape-main {
     background-color: rgb(201, 213, 224);
     padding: 1rem;

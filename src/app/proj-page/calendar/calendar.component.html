@@ -1,16 +1,16 @@
 <div class="container">
     
     <div class="mes">
-        <div class="prev-next-month">
-            <span class="material-icons naoSelecionavel" (click)="prevMonth()">arrow_left</span>
+        <div class="prev-next-month" (click)="prevMonth()">
+            <span class="material-icons naoSelecionavel" >arrow_left</span>
         </div>
         
         <div class="nomeMes naoSelecionavel">
             <span class="material-icons naoSelecionavel">calendar_today</span>
             {{monName [mes]}}
         </div>
-        <div class="prev-next-month">
-            <span class="material-icons naoSelecionavel" (click)="nextMonth()" >arrow_right</span>
+        <div class="prev-next-month" (click)="nextMonth()">
+            <span class="material-icons naoSelecionavel"  >arrow_right</span>
         </div>
     </div>
     <div class="iniciais-dias">

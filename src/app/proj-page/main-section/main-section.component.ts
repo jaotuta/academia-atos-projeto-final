@@ -4,7 +4,7 @@ import { RecursoFormDialogComponent } from './recurso-form-dialog/recurso-form-d
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { ToastConfirmacaoComponent } from '../toast-confirmacao/toast-confirmacao.component';
-import { ServiceService } from 'src/app/service.service';
+import { ServiceService } from 'src/app/rda.service';
 
 @Component({
   selector: 'app-main-section',
@@ -13,9 +13,21 @@ import { ServiceService } from 'src/app/service.service';
 })
 export class MainSectionComponent {
   now = new Date();
-  //dia = new.getDay();
-  //mes = this.now.getMonth();
-  dia = this.now.getDate() + " / " + (this.now.getMonth()+1) + " / 2023"
+  monName = new Array(
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+  );
+  diaAtual : string;
   registros :any;
 
   constructor(public dialog: MatDialog, private toastr: ToastrService, public service: ServiceService) { };
@@ -29,7 +41,7 @@ export class MainSectionComponent {
   }
 
 
-  confirmacao(id_registro:any) {
+  confirmacaoExclusao(id_registro:any) {
     console.log(id_registro + ": Id_registro")
     const dialogRef = this.dialog.open(ToastConfirmacaoComponent, {});
     dialogRef.afterClosed().subscribe(result => {
@@ -42,7 +54,7 @@ export class MainSectionComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(RecursoFormDialogComponent, {
-
+      minWidth: '550px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -50,9 +62,14 @@ export class MainSectionComponent {
     });
   }
   ngOnInit(){
-    this.getListOfRegistros();  
+    this.getListOfRegistros(); 
+    setTimeout(() => {
+      this.getDiaSelecionado () 
+    }, 100);
   }
-
+  public getDiaSelecionado () {
+    this.diaAtual =  this.service.dia + " de " + this.monName[parseInt(this.service.mes)] + " de 2023";
+  }
   getListOfRegistros() {
     this.registros = this.service.getListOfRegistros();
     
