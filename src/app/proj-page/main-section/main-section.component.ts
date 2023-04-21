@@ -71,8 +71,10 @@ export class MainSectionComponent {
     this.diaAtual =  this.service.dia + " de " + this.monName[parseInt(this.service.mes)] + " de 2023";
   }
   getListOfRegistros() {
-    this.registros = this.service.getListOfRegistros();
-    
+    this.service.getRda().subscribe((data)=>{
+      this.registros = data;
+      console.log(data);
+    });
   }
   
 }
