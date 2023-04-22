@@ -59,10 +59,10 @@ export class CalendarComponent {
 
   getDiaSelecionado($event: any) {
     this.diaSelecionado = $event.target.innerHTML;
-    this.rdaService.dia = $event.target.innerHTML;
+    this.rdaService.dia = $event.target.innerHTML.trim();
     this.rdaService.mes =  this.mes.toString();
     this.mainContent.getDiaSelecionado();
-    console.log(this.diaSelecionado +"  "+ this.mes + "calendar")
+    this.mainContent.getListOfRegistros()
   }
 
   ngOnInit() {

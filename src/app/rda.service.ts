@@ -10,7 +10,9 @@ export class ServiceService {
   dia: string;
   mes: string;
   registrosss: Array<Object> | undefined;
+  now = new Date();
   apiUrl = 'http://projetospro-1682041513699.azurewebsites.net/rdo'
+  apiUrlTest = 'http://localhost:8080/rdo/rdodate';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -23,7 +25,8 @@ export class ServiceService {
   ) {}
 
   public getRdaWithDiaMes(dia: string, mes: string):  Observable<Recurso> {
-    return this.httpClient.get<Recurso>(this.apiUrl + '?dia=' + dia + '&mes=' + mes ) 
+    console.log(dia , mes)
+    return this.httpClient.get<Recurso>(this.apiUrl+'/rdodate?dia='+dia+'&mes='+mes) 
   };
   public getRda():  Observable<Recurso> {
     return this.httpClient.get<Recurso>(this.apiUrl) 
