@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ServiceService } from 'src/app/rda.service';
+import { MainSectionComponent } from '../main-section.component';
 
 @Component({
   selector: 'app-recurso-form-dialog',
@@ -15,8 +16,9 @@ export class RecursoFormDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<RecursoFormDialogComponent>,
+    public mainContent: MainSectionComponent,
     public service: ServiceService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,12 @@ export class RecursoFormDialogComponent {
 
   addOk() {
     console.log(this.recursoForm.value)
-    this.service.testeModArray();
+    let aux = this.recursoForm.value;
+    this.service.postRecurso(this.recursoForm.value).subscribe(data => {
+      this.mainContent.teste();
+      console.log(data)
+    })
+    
     this.dialogRef.close(true);
     this.recursoForm.reset();
     //window.location.reload()

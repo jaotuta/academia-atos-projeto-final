@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { Recurso } from './models/recurso.model';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class ServiceService {
   mes: string;
   registrosss: Array<Object> | undefined;
   now = new Date();
+  private _refreshReq = new Subject<void>
   apiUrl = 'http://projetospro-1682041513699.azurewebsites.net/rdo'
   apiUrlTest = 'http://localhost:8080/rdo/rdodate';
 
@@ -24,6 +25,10 @@ export class ServiceService {
     private httpClient: HttpClient
   ) {}
 
+  get refreshRequered () {
+    return this._refreshReq;
+  }
+
   public getRdaWithDiaMes(dia: string, mes: string):  Observable<Recurso> {
     console.log(dia , mes)
     return this.httpClient.get<Recurso>(this.apiUrl+'/rdodate?dia='+dia+'&mes='+mes) 
@@ -33,7 +38,9 @@ export class ServiceService {
   };
 
   public postRecurso(recurso: any) : Observable<Recurso> {
-    return this.httpClient.post<any>(this.apiUrl, recurso, this.httpOptions)
+    return this.httpClient.post<any>(this.apiUrl+"/novo", recurso, this.httpOptions).pipe(tap(() => {
+      this.refreshRequered.next();
+    }))
   }
 
   testeModArray(){

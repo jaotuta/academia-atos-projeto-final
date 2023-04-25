@@ -26,10 +26,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { TextFieldModule } from '@angular/cdk/text-field';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,10 +54,10 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    TextFieldModule
+    TextFieldModule,
 
   ],
-  providers: [],
+  providers: [MainSectionComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

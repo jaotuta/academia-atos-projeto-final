@@ -2,7 +2,7 @@
     <div class="proj-content">
         <div class="add-registro">
             <div class="dia-selecionado-nome">
-                Dia Selecionado:<span class="dia-selecionado">{{diaAtual}}</span> 
+                Dia Selecionado:<span class="dia-selecionado">{{diaAtual}}</span>
             </div>
             <div class="btn-add naoSelecionavel" (click)="openDialog()">
                 <div class="texto-btn">Adicionar recurso</div>
@@ -15,7 +15,7 @@
                     <mat-card-subtitle>{{registro.funcao}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-actions align="end">
-                    <button mat-button>
+                    <button mat-button (click)="editarRecurso(registro.id)">
                         <span class="material-symbols-outlined alinhamento-icon">
                             edit_note
                         </span>
@@ -24,7 +24,7 @@
                         <span style="color: rgb(231, 71, 71);" class="material-symbols-outlined alinhamento-icon">
                             delete
                         </span>
-                        </button>
+                    </button>
                 </mat-card-actions>
             </mat-card>
         </div>

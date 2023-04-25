@@ -6,6 +6,7 @@ import { take } from 'rxjs';
 import { ToastConfirmacaoComponent } from '../toast-confirmacao/toast-confirmacao.component';
 import { ServiceService } from 'src/app/rda.service';
 import { Recurso } from 'src/app/models/recurso.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-section',
@@ -13,6 +14,7 @@ import { Recurso } from 'src/app/models/recurso.model';
   styleUrls: ['./main-section.component.css'],
 })
 export class MainSectionComponent {
+  
   now = new Date();
   monName = new Array(
     'Janeiro',
@@ -30,14 +32,15 @@ export class MainSectionComponent {
   );
   diaAtual: string;
   registros: any | [];
+  diaPrevio = 4;
+  condition = true;
 
   constructor(
     public dialog: MatDialog,
     private toastr: ToastrService,
-    public service: ServiceService
-  ) {}
+    public service: ServiceService,
+  ) { }
 
-  condition = true;
 
   showToaster(titulo: string, msg: string) {
     this.toastr.success(titulo, msg, {
@@ -56,6 +59,10 @@ export class MainSectionComponent {
     });
   }
 
+  editarRecurso(id_registro: any) {
+    console.log(id_registro)
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(RecursoFormDialogComponent, {
       minWidth: '550px',
@@ -65,18 +72,29 @@ export class MainSectionComponent {
       console.log('The dialog was closed' + result);
     });
   }
+
   ngOnInit() {
     setTimeout(() => {
       this.getDiaSelecionado();
       this.getListOfRegistros();
+      this.service.refreshRequered.subscribe(response => {
+        this.getListOfRegistros();
+      })
     }, 80);
+    console.log(this.diaPrevio)
   }
+
   public getDiaSelecionado() {
     this.diaAtual =
       this.service.dia +
       ' de ' +
       this.monName[parseInt(this.service.mes)] +
       ' de 2023';
+  }
+
+  teste () {
+    this.diaPrevio = 8;
+    //location.reload()
   }
   getListOfRegistros() {
     let diaa = this.service.dia;
