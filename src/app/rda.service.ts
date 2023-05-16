@@ -12,7 +12,7 @@ export class ServiceService {
   registrosss: Array<Object> | undefined;
   now = new Date();
   private _refreshReq = new Subject<void>
-  apiUrl = 'http://projetospro-1682041513699.azurewebsites.net/rdo'
+  apiUrl = 'https://proj-master.herokuapp.com/rdo'
   apiUrlTest = 'http://localhost:8080/rdo/rdodate';
 
   httpOptions = {
