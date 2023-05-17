@@ -47,11 +47,22 @@
 
 }
 .preenchido {
-    background-color: rgb(184, 21, 21);
+    background-color: rgb(255, 158, 158);
     height: 4px;
     width: 4px;
-    border-radius: 50%;
     margin: 2px;
+    box-shadow: 0 0 4px 1px red;
+    border: 1px solid rgb(214, 66, 66);
+    border-radius: 50%;
+}
+.dia-preenchido {
+    background-color: rgb(129, 255, 103);
+    height: 4px;
+    width: 4px;
+    margin: 2px;
+    border: 1px solid rgb(36, 150, 46);
+    box-shadow: 0 0 4px 1px rgb(32, 167, 5);
+    border-radius: 50%;
 }
 .mes {
     display: flex;

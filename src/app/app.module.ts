@@ -57,7 +57,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     TextFieldModule,
 
   ],
-  providers: [MainSectionComponent],
+  providers: [MainSectionComponent, CalendarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

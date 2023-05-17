@@ -228,3 +228,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       width: 25em;
     }
   }
+  :root{
+    --cor-principal: rgb(179, 27, 27);
+}

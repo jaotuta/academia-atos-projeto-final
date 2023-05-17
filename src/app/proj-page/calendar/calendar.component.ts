@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServiceService } from 'src/app/rda.service';
 import { MainSectionComponent } from '../main-section/main-section.component';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
@@ -32,7 +33,10 @@ export class CalendarComponent {
   firstLoad = 0;
   diaSelecionado = this.now.getDate();
 
-  constructor(public rdaService: ServiceService, public mainContent: MainSectionComponent) {};
+  constructor(
+    public rdaService: ServiceService,
+    public mainContent: MainSectionComponent
+  ) {}
 
   diasNoMes(mes: number, ano: number) {
     var data = new Date(ano, mes + 1, 0);
@@ -60,9 +64,29 @@ export class CalendarComponent {
   getDiaSelecionado($event: any) {
     this.diaSelecionado = $event.target.innerHTML;
     this.rdaService.dia = $event.target.innerHTML.trim();
-    this.rdaService.mes =  this.mes.toString();
+    this.rdaService.mes = this.mes.toString();
     this.mainContent.getDiaSelecionado();
-    this.mainContent.getListOfRegistros()
+    this.mainContent.getListOfRegistros();
+  }
+
+  public getRdas() {
+    this.rdaService.getRda().subscribe((data) => {
+      let lista = data;
+      const elemento = document.querySelectorAll('.conteudo');
+      lista.forEach((item) => {
+        elemento.forEach((dias) => {
+          console.log (dias.innerHTML + " aquiii " + item.dia )
+          if (parseInt(dias.innerHTML) == parseInt(item.dia)) {
+            console.log("aqui entrou ")
+            let pai = dias.parentElement;
+            let elementoPreenchido = pai?.querySelector('.preenchido');
+            elementoPreenchido?.classList.add('dia-preenchido');
+            elementoPreenchido?.classList.remove('preenchido');
+          } 
+        });
+      })
+      
+    });
   }
 
   ngOnInit() {
@@ -71,7 +95,8 @@ export class CalendarComponent {
       this.diasDoMes.push(i);
     }
     this.rdaService.dia = this.diaSelecionado.toString();
-    this.rdaService.mes =  this.mes.toString();
+    this.rdaService.mes = this.mes.toString();
+    this.getRdas();
   }
 
   ngDoCheck() {

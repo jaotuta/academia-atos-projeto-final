@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ServiceService } from 'src/app/rda.service';
 import { MainSectionComponent } from '../main-section.component';
+import { CalendarComponent } from '../../calendar/calendar.component';
 
 @Component({
   selector: 'app-recurso-form-dialog',
@@ -19,17 +20,21 @@ export class RecursoFormDialogComponent {
     public mainContent: MainSectionComponent,
     public service: ServiceService,
     private fb: FormBuilder,
+    public calendar: CalendarComponent
   ) { }
 
   ngOnInit(): void {
     this.dia = this.service.dia;
     this.mes = this.service.mes;
+    
+    console.log("teste aqui")
     this.recursoForm = this.fb.group({
       nome: ['', [Validators.required]],
       funcao: ['', [Validators.required]],
       dia: [this.dia, [Validators.required]],
       mes: [this.mes, [Validators.required]],
       descricao: ['']
+      
     })
   }
 
@@ -43,10 +48,13 @@ export class RecursoFormDialogComponent {
     
     this.dialogRef.close(true);
     this.recursoForm.reset();
+    setTimeout(() => this.calendar.getRdas(), 200)
+    
     //window.location.reload()
   }
 
   cancel(): void {
+    
     this.dialogRef.close();
     this.recursoForm.reset();
   }

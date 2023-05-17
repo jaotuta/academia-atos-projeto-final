@@ -1,6 +1,6 @@
 .projeto {
     display: flex;
-    background-color: rgb(97, 154, 234);
+    background: linear-gradient(0.25turn, rgb(22, 106, 222), #1f5aac);
     color: white;
     padding: 1.4rem;
     margin-bottom: 0.5rem;

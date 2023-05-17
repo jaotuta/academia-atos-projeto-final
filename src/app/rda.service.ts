@@ -33,8 +33,8 @@ export class ServiceService {
     console.log(dia , mes)
     return this.httpClient.get<Recurso>(this.apiUrl+'/rdodate?dia='+dia+'&mes='+mes) 
   };
-  public getRda():  Observable<Recurso> {
-    return this.httpClient.get<Recurso>(this.apiUrl) 
+  public getRda():  Observable<Recurso[]> {
+    return this.httpClient.get<Recurso[]>(this.apiUrl) 
   };
 
   public postRecurso(recurso: any) : Observable<Recurso> {
@@ -47,9 +47,8 @@ export class ServiceService {
     this.registrosss?.push({id: 5, nome: "Adriana Silveira", func: "ADM" })
   }
   
-  getListOfRegistros() {
-    this.registrosss =  [{ id: 1, nome: "João Lucas Cruz", func: "Engenheiro" }, { id: 2, nome: "Maicon Roberto Soares", func: "Montador" }, { id: 3, nome: "Célio Roberto", func: "Eletricista" }]
-    return this.registrosss;
+  public getListOfRegistros() {
+    return this.httpClient.get<Recurso>("https://proj-master.herokuapp.com/rdo")  
   }
 
   getDia(): string {
